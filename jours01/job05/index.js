@@ -14,5 +14,5 @@ const repertoireParent = path.dirname(fichier);
 
 
 console.log("Nom du fichier :", nomFichier);
-console.log("Extension :", extension);
-console.log("Répertoire parent :", repertoireParent);
+console.log("Extension du fichhier:", extension);
+console.log("Répertoire parent du fichier :", repertoireParent);
