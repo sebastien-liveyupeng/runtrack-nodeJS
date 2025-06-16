@@ -1,19 +1,11 @@
 const fs = require('fs');
-const path = require('path');
 
-const currentDir = '.';
 
-fs.readdir(currentDir, { withFileTypes: true }, (err, files) => {
-  if (err) {
-    console.error('Erreur lors de la lecture du répertoire:', err);
-    return;
-  }
+fs.readdir('.', { withFileTypes: true }, (err, items) => {
+  if (err) return console.error('Erreur :', err);
 
-  const directories = files
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name);
+  const dirs = items.filter(i => i.isDirectory()).map(i => i.name);
 
-  console.log('Contenue du repertoire courant :');
-  directories.forEach(dir => console.log(dir));
+  console.log(dirs.length ? 'Dossiers dans le repertoire :' : 'Aucun dossier trouvé.');
+  dirs.forEach(d => console.log(d));
 });
-// affiche uniqument les dossiers du repertoire courant sans afficher les fichiers
